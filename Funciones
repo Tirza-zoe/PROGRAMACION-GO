@@ -1,0 +1,119 @@
+package main
+
+import "fmt"
+
+ 
+
+func main() {
+
+  var a,b int
+
+ 
+
+  fmt.Println("ingrese dos numeros:")
+
+  fmt. Scanf("%d",&a)
+
+  fmt. Scanf("%d",&b)
+
+    fmt.Println("El resultado de la suma de los numeros ingresados es:",suma(a,b))
+
+    //fmt.Println("El resultado de la resta de los numeros ingresados es:",resta(a,b))
+
+    //fmt.Println("El resultado de la multiplicacion de los numeros ingresados es:",mult(a,b))
+
+    //fmt.Println("El resultado de la division de los numeros ingresados es:",div(a,b))
+
+ 
+
+    //fmt.Println( mult(resta(a,b), suma(a,b)))
+
+}
+
+ 
+
+func suma(numero1, numero2 int) int{
+
+ 
+
+  var resultado1 int
+
+  resultado1 = numero1 + numero2
+
+  return resultado1
+
+}
+
+ 
+
+func resta(numer1, numer2 int) int{
+
+ 
+
+  var resultado2 int
+
+  resultado2 = numer1 - numer2
+
+  return resultado2
+
+}
+
+func mult(num1, num2 int) int{
+
+ 
+
+  var resultado3 int
+
+  resultado3 = num1 * num2
+
+  return resultado3
+
+}
+
+ 
+
+func div(numero, numer int) int{
+
+ 
+
+  var resultado4 int
+
+  resultado4 = numero / numer
+
+  return resultado4
+
+}
+
+//FUNCION RECURSIVA
+
+/*
+
+func main() {
+
+  var k int
+
+ 
+
+  fmt.Println("ingrese un numero:")
+
+  fmt. Scanf("%d",&k)
+
+    fmt.Println("El factorial de el numero ingresado es:",fact(k))
+
+}
+
+func fact(n int) int {
+
+    if n == 0 {
+
+        return 1
+
+    }
+
+    return n * fact(n-1)
+
+}
+
+ 
+
+*/
