@@ -1,0 +1,117 @@
+package main
+import "fmt"
+
+var n int
+func main() {
+  var m [100][100] float64
+  var m2 [100][100] float64
+m=datos()
+ecuaciones(m)
+m2=gauss (m)
+respuesta(m2)
+
+}
+
+ func datos()[100][100]float64{
+  var x float64
+ 
+  fmt.Println("Ingrese un valor para n")
+  fmt.Scanf("%v",&n)
+  var m [100][100] float64
+  fmt.Println("Ingrese los valores del sistema de ecuaciones")
+  for i:=0; i<n; i++{
+    for j:=0; j<n+1; j++{
+      if (j<n){
+        fmt.Print("Ingrese el valor para x",j+1,":")
+        fmt.Scanf("%v",&x)
+        m[i][j] = x
+      } else {
+        fmt.Print("Igual a:")
+        fmt.Scanf("%v",&x)
+        m[i][j] = x
+      }
+    }
+}
+return m
+}
+
+func ecuaciones(m[100][100]float64){
+for i:=0;i<n;i++ {
+    for j:=0;j<n+1;j++ {
+      if(j<n){
+        fmt.Print(m[i][j],"(x",j+1,")")
+      } else{
+        fmt.Print("=",m[i][j])
+      }
+      if(j<n-1){//Quitar los "+" de los numeros negativos
+        if(m[i][j+1]>=0){
+          fmt.Print("+")
+        }
+      }
+    }
+    fmt.Println()
+  }
+  fmt.Println()
+
+}
+
+func gauss(m[100][100]float64)[100][100]float64{
+  var aux, temp, multi float64
+  mayor := -1000.1
+  for j:=0;j<n;j++{
+    for i:=0;i<n;i++{//Reordena la matriz
+      if (m[i][j] > mayor){
+        mayor = m[i][j]
+        for l:=0;l<n+1;l++{
+          temp = m[j][l];
+          m[j][l] = m[i][l];
+          m[i][l] = temp;
+        }
+      }
+    }
+    //Reduce
+    aux = 1/m[j][j]
+    for l:=0;l<n+1;l++{
+      m[j][l] = aux*m[j][l]
+    }
+    for i:=0;i<n;i++{
+      if(i!=j){
+        multi = m[i][j]
+        for l:=0;l<n+1;l++{
+          m[i][l] = m[i][l] - multi*m[j][l]
+        }
+      }
+    }
+  }
+  return m
+}
+func respuesta(m[100][100]float64){
+  var cont,cont2 int
+
+   for d:=0;d<n-1;d++{//Respuesta final del sistema
+    if (m[d][n] == 0) {
+        cont2++;
+    }
+  }
+ if(cont2==n-1){
+ fmt.Println("Tiene respuesta trivial")
+ }
+
+  for j:=0;j<n;j++{
+    if (m[n-1][j] == 0) {
+        cont++;
+    }
+  }
+ 
+  if (cont == n && m[n-1][n]==0) {
+      fmt. Println("el sistema tiene infinitas soluciones")
+  } else if (cont == n&& m[n-1][n] != 0) {
+      fmt.Println("el sistema no tiene solucion")
+    }else{
+  for i:=0;i<n;i++{//Respuesta final del sistema
+      fmt.Println("Los valores de las incognitas son:")
+      fmt.Println("x",i+1,"=",m[i][n])
+  }
+  }
+ 
+}
