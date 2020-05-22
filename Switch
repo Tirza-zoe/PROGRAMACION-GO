@@ -1,0 +1,49 @@
+package main
+
+import "fmt"
+
+func main(){
+
+var opcion int
+
+fmt.Println("MENU")
+
+fmt.Println("1. Pizza")
+fmt.Println("2. Hamburguesa")
+fmt.Println("3. Tacos mexicanos")
+fmt.Println("4. Ensalada")
+fmt.Println("5. Pollo frito")
+fmt.Println("Elija una opcion")
+
+fmt.Scanf("%d\n", &opcion)
+
+switch opcion {
+
+  case 1:
+  
+  fmt.Println("Su orden es: Pizza")
+
+  case 2:
+  
+  fmt.Println("Su orden es: Hamburguesa")
+
+  case 3:
+  
+  fmt.Println("Su orden es: Tacos mexicanos")
+
+  case 4:
+  
+  fmt.Println("Su orden es: Ensalada")
+
+  case 5:
+  
+  fmt.Println("Su orden es: Pollo frito")
+
+  default:
+        
+  fmt.Println("No esta en el menu")
+
+}
+
+
+}
