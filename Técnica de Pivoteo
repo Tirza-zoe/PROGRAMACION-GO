@@ -1,5 +1,6 @@
 package main
-import "fmt"
+import ("fmt"
+"math")
 
 var n int
 func main() {
@@ -15,11 +16,12 @@ respuesta(m2)
  func datos()[100][100]float64{
   var x float64
  
-  fmt.Println("Ingrese un valor para n")
+  fmt.Println("Ingrese la cantidad de variables: ")
   fmt.Scanf("%v",&n)
   var m [100][100] float64
   fmt.Println("Ingrese los valores del sistema de ecuaciones")
   for i:=0; i<n; i++{
+     fmt.Println("ecuacion",i+1)
     for j:=0; j<n+1; j++{
       if (j<n){
         fmt.Print("Ingrese el valor para x",j+1,":")
@@ -57,10 +59,11 @@ for i:=0;i<n;i++ {
 
 func gauss(m[100][100]float64)[100][100]float64{
   var aux, temp, multi float64
-  mayor := -1000.1
+  mayor := 0.0
   for j:=0;j<n;j++{
     for i:=0;i<n;i++{//Reordena la matriz
-      if (m[i][j] > mayor){
+    absoluto:=math.Abs(m[i][j])
+      if (absoluto> mayor){
         mayor = m[i][j]
         for l:=0;l<n+1;l++{
           temp = m[j][l];
@@ -70,6 +73,7 @@ func gauss(m[100][100]float64)[100][100]float64{
       }
     }
     //Reduce
+  
     aux = 1/m[j][j]
     for l:=0;l<n+1;l++{
       m[j][l] = aux*m[j][l]
@@ -85,33 +89,14 @@ func gauss(m[100][100]float64)[100][100]float64{
   }
   return m
 }
+
 func respuesta(m[100][100]float64){
-  var cont,cont2 int
-
-   for d:=0;d<n-1;d++{//Respuesta final del sistema
-    if (m[d][n] == 0) {
-        cont2++;
-    }
-  }
- if(cont2==n-1){
- fmt.Println("Tiene respuesta trivial")
- }
-
-  for j:=0;j<n;j++{
-    if (m[n-1][j] == 0) {
-        cont++;
-    }
-  }
- 
-  if (cont == n && m[n-1][n]==0) {
-      fmt. Println("el sistema tiene infinitas soluciones")
-  } else if (cont == n&& m[n-1][n] != 0) {
-      fmt.Println("el sistema no tiene solucion")
-    }else{
+  var cont int
+  
   for i:=0;i<n;i++{//Respuesta final del sistema
       fmt.Println("Los valores de las incognitas son:")
       fmt.Println("x",i+1,"=",m[i][n])
   }
-  }
+  
  
 }
