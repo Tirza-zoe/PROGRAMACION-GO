@@ -1,0 +1,33 @@
+package main
+
+import "fmt"
+
+func main() {
+  var arreglo1 =[5]int{2,4,7,3,9} 
+  var arreglo2 =[5]int{4,7,2,8,10}
+  var matriz1 = [][] int{{1,3},{4,6}}
+  var matriz2 = [][] int{{1,4},{7,10}}
+fmt.Println("el resultado de la multiplicacion es:",multiplicar(arreglo1,arreglo2))
+  fmt.Println(sumar(matriz1,matriz2))
+
+}
+
+func multiplicar(arreglo1[5]int,arreglo2[5]int)[5]int{
+var total[5] int
+ for i:=0;i<5;i++ {
+   total[i]=arreglo1[i]*arreglo2[i]
+ }
+return total
+}
+
+func sumar(arreglo1[][]int,arreglo2[][]int)([2][2]int,[2][2]int){
+  var suma [2][2] int
+  var resta [2][2] int
+  for i:=0;i<2;i++ {
+    for j:=0;j<2;j++ {
+suma[i][j]=arreglo1[i][j]+arreglo2[i][j]
+resta[i][j]=arreglo1[i][j]-arreglo2[i][j]
+    }
+  }
+  return suma,resta
+}
